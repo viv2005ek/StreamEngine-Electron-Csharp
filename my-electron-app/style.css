@@ -1,0 +1,109 @@
+:root {
+    --bg-dark: #0f111a;
+    --card-bg: #1a1c27;
+    --accent: #00e5ff;
+    --text-main: #e0e0e0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    margin: 0;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 span { color: var(--accent); }
+
+.primary-btn {
+    background: var(--accent);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.primary-btn:active { transform: scale(0.95); }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+}
+
+.stat-card label {
+    font-size: 0.8rem;
+    color: #888;
+    display: block;
+}
+
+.stat-card .value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.progress-bar-container {
+    background: #333;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00c6ff 0%, #00e5ff 100%);
+    transition: width 0.1s ease;
+}
+
+.log-container {
+    flex-grow: 1;
+    background: #000;
+    margin-top: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.log-header {
+    padding: 8px 15px;
+    background: #222;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.log-body {
+    padding: 15px;
+    font-family: 'Consolas', monospace;
+    font-size: 0.9rem;
+    color: #0f0;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}

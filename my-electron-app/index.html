@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';" />
+    <title>High-Speed Stream Processor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Stream<span>Engine</span></h1>
+            <button id="pick" class="primary-btn">Select Large File</button>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <label>Throughput</label>
+                <div id="speed-val" class="value">0 MB/s</div>
+            </div>
+            <div class="stat-card">
+                <label>Memory Usage</label>
+                <div id="mem-val" class="value">0 MB</div>
+            </div>
+            <div class="stat-card">
+                <label>Total Time</label>
+                <div id="time-val" class="value">0.00s</div>
+            </div>
+        </section>
+
+        <section class="progress-section">
+            <div class="progress-info">
+                <span id="file-name">No file selected</span>
+            </div>
+          
+        </section>
+
+        <section class="log-container">
+            <div class="log-header">System Logs</div>
+            <div id="log" class="log-body"></div>
+        </section>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
