@@ -27,7 +27,7 @@ jobs:
       # -----------------------
       - name: Build C# executable (macOS)
         run: |
-          cd LargeFileStreamReader/LargeFileStreamReader
+          cd LargeFileStreamReader
           dotnet publish -c Release -r osx-x64 --self-contained true
 
       # -----------------------
