@@ -35,7 +35,7 @@ jobs:
       # -----------------------
       - name: Run C# streaming test
         run: |
-          cd LargeFileStreamReader/LargeFileStreamReader/bin/Release/net9.0/osx-x64/publish
+          cd LargeFileStreamReader/bin/Release/net9.0/osx-x64/publish
           # create dummy large file (~200MB for CI)
           dd if=/dev/zero of=test.bin bs=1m count=200
           ./LargeFileStreamReader test.bin
