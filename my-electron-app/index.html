@@ -2,15 +2,28 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';" />
-    <title>High-Speed Stream Processor</title>
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline';"
+    />
+    <title>StreamEngine</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-container">
         <header>
             <h1>Stream<span>Engine</span></h1>
-            <button id="pick" class="primary-btn">Select Large File</button>
+
+            <div style="display:flex; gap:15px; align-items:center;">
+                <label style="font-size:0.8rem;">
+                    <input type="checkbox" id="use-stdin" />
+                    Send file via IPC (Plan B)
+                </label>
+
+                <button id="pick" class="primary-btn">
+                    Select Large File
+                </button>
+            </div>
         </header>
 
         <section class="stats-grid">
@@ -29,10 +42,7 @@
         </section>
 
         <section class="progress-section">
-            <div class="progress-info">
-                <span id="file-name">No file selected</span>
-            </div>
-          
+            <span id="file-name">No file selected</span>
         </section>
 
         <section class="log-container">
