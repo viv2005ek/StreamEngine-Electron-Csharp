@@ -149,27 +149,27 @@ npm start
 
 ```
 User
- 
-  selects file
- 
+│
+│ selects file
+▼
 Electron UI
- 
-  spawns process with file path
- 
+│
+│ spawns C# process with file path
+▼
 C# Executable
- 
-  opens file directly
-  reads in fixed-size chunks (default: 16 MB)
-  measures throughput & memory
- 
- 
+│
+│ opens file directly from disk
+│ reads in fixed-size chunks (default: 16 MB)
+│ measures throughput and memory usage
+│
+▼
 stdout (text logs)
- 
- 
+│
+▼
 Electron Renderer
- 
-  parses output
- 
+│
+│ parses output
+▼
 UI Dashboard
 ```
 
