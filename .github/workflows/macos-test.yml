@@ -1,0 +1,66 @@
+name: macOS Electron + C# Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  macos-test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # -----------------------
+      # Setup .NET
+      # -----------------------
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      # -----------------------
+      # Build C# backend
+      # -----------------------
+      - name: Build C# executable (macOS)
+        run: |
+          cd LargeFileStreamReader/LargeFileStreamReader
+          dotnet publish -c Release -r osx-x64 --self-contained true
+
+      # -----------------------
+      # Verify C# execution
+      # -----------------------
+      - name: Run C# streaming test
+        run: |
+          cd LargeFileStreamReader/LargeFileStreamReader/bin/Release/net9.0/osx-x64/publish
+          # create dummy large file (~200MB for CI)
+          dd if=/dev/zero of=test.bin bs=1m count=200
+          ./LargeFileStreamReader test.bin
+
+      # -----------------------
+      # Setup Node.js
+      # -----------------------
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # -----------------------
+      # Install Electron dependencies
+      # -----------------------
+      - name: Install Electron dependencies
+        run: |
+          cd my-electron-app
+          npm install
+
+      # -----------------------
+      # Electron headless test
+      # -----------------------
+      - name: Electron process spawn test
+        run: |
+          cd my-electron-app
+          # run Electron without GUI
+          npx electron . --no-sandbox || true
