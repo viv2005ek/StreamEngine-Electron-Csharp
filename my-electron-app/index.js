@@ -26,17 +26,35 @@ ipcMain.handle("pick-and-run", async (_, useStdin) => {
 
     const filePath = result.filePaths[0];
 
-    const exePath = path.join(
-        __dirname,
-        "..",
-        "LargeFileStreamReader",
-        "bin",
-        "Release",
-        "net9.0",
-        "win-x64",
-        "publish",
-        "LargeFileStreamReader.exe"
-    );
+const platform = process.platform;
+
+let rid;
+let exeName = "LargeFileStreamReader";
+
+if (platform === "win32") {
+    rid = "win-x64";
+    exeName += ".exe";
+} else if (platform === "darwin") {
+    // change to osx-x64 if on Intel Mac
+    rid = "osx-arm64";
+} else if (platform === "linux") {
+    rid = "linux-x64";
+} else {
+    throw new Error("Unsupported OS");
+}
+
+const exePath = path.join(
+    __dirname,
+    "..",
+    "LargeFileStreamReader",
+    "bin",
+    "Release",
+    "net9.0",
+    rid,
+    "publish",
+    exeName
+);
+
 
     return new Promise((resolve) => {
         let output = "";
