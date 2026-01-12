@@ -1,4 +1,4 @@
-﻿# Electron + C# Large File Streaming (Plan A)
+﻿# Electron + C# Large File Streaming 
 
 This project demonstrates a desktop architecture where Electron acts as the UI layer and a C# executable acts as a high-performance backend for reading and processing very large files (1GB+) directly from disk.
 
