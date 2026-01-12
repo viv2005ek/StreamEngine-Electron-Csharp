@@ -35,7 +35,7 @@ trap cleanup EXIT
 # Clone repo (TEMP)
 # -----------------------------
 cd "$WORKDIR"
-git clone git clone https://github.com/viv2005ek/StreamEngine-Electron-Csharp.git
+git clone https://github.com/viv2005ek/StreamEngine-Electron-Csharp.git
 cd StreamEngine-Electron-Csharp
 
 # -----------------------------
