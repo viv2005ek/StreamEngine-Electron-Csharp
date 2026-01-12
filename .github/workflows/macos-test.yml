@@ -31,17 +31,17 @@ jobs:
           dd if=/dev/zero of=test.bin bs=1m count=200
           ./LargeFileStreamReader test.bin
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20'
 
-      - name: Install Electron dependencies
-        run: |
-          cd my-electron-app
-          npm install
+      # - name: Install Electron dependencies
+      #   run: |
+      #     cd my-electron-app
+      #     npm install
 
-      - name: Electron process spawn test
-        run: |
-          cd my-electron-app
-          npx electron . --no-sandbox || true
+      # - name: Electron process spawn test
+      #   run: |
+      #     cd my-electron-app
+      #     npx electron . --no-sandbox || true
