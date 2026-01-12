@@ -45,7 +45,7 @@ The core idea is disk-based streaming:
 ## Project Structure
 
 ```
-LargeFileStreamReader/
+github repo/
  LargeFileStreamReader/        # C# backend project
    Program.cs
    LargeFileStreamReader.csproj
@@ -102,7 +102,7 @@ Executables are not committed to GitHub, so this step is required after every fr
 From the C# project directory:
 
 ```bash
-cd LargeFileStreamReader/LargeFileStreamReader
+cd LargeFileStreamReader
 ```
 
 Run the publish command:
@@ -128,7 +128,7 @@ bin/Release/net9.0/win-x64/publish/LargeFileStreamReader.exe
 Navigate to the Electron app directory:
 
 ```bash
-cd ../../my-electron-app
+cd ../my-electron-app
 ```
 
 Install dependencies:
