@@ -68,7 +68,8 @@ github repo/
 
 Make sure the following are installed before cloning:
 
-* Windows (x64)
+*  Windows (x64), macOS (Intel / Apple Silicon), or Linux
+* .NET SDK 9.0 or later
 * .NET SDK 9.0 or later  
   https://dotnet.microsoft.com/download
 * Node.js (LTS recommended)  
@@ -107,14 +108,39 @@ cd LargeFileStreamReader
 
 Run the publish command:
 
+Windows
 ```bash
 dotnet publish -c Release -r win-x64 --self-contained true
+```
+macOS (Apple Silicon):
+```bash
+dotnet publish -c Release -r osx-arm64 --self-contained true
+```
+macOS (Intel):
+```bash
+dotnet publish -c Release -r osx-x64 --self-contained true
+```
+Linux (x64):
+```bash
+dotnet publish -c Release -r linux-x64 --self-contained true
 ```
 
 This generates the executable at:
 
+Windows
 ```
 bin/Release/net9.0/win-x64/publish/LargeFileStreamReader.exe
+```
+
+MacOS/Linux
+```
+bin/Release/net9.0/<RID>/publish/LargeFileStreamReader
+
+
+Where <RID> is one of:
+- osx-arm64
+- osx-x64
+- linux-x64
 ```
 
  **Important notes:**
