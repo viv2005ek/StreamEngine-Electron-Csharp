@@ -9,6 +9,42 @@ The core idea is disk-based streaming:
 * No large data is transferred over IPC
 * Results are streamed back to Electron via process stdout (not APIs)
 
+## Testing (Ephemeral CLI Runners)
+
+For quick evaluation, the project provides **ephemeral CLI runners** that build and run the application in a temporary workspace and **clean up all files on exit**. No files or dependencies persist after the program ends.
+
+### Linux / WSL Requirements (Electron)
+
+On minimal Linux or WSL environments, Electron requires additional system libraries (install once):
+
+```bash
+sudo apt update
+sudo apt install -y \
+  libnss3 \
+  libnspr4 \
+  libatk1.0-0t64 \
+  libatk-bridge2.0-0t64 \
+  libcups2t64 \
+  libxkbcommon0 \
+  libxcomposite1 \
+  libxrandr2 \
+  libxdamage1 \
+  libxfixes3 \
+  libgbm1 \
+  libasound2t64
+
+curl -fsSL https://raw.githubusercontent.com/viv2005ek/StreamEngine-Electron-Csharp/master/install.sh | bash
+
+```
+### Linux & macOS
+```bash
+curl -fsSL https://raw.githubusercontent.com/viv2005ek/StreamEngine-Electron-Csharp/master/install.sh | bash
+```
+### Windows (PowerShell)
+```bash
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+irm https://raw.githubusercontent.com/viv2005ek/StreamEngine-Electron-Csharp/master/install.ps1 | iex
+```
 ---
 
 ## Architecture Overview (Plan A)
