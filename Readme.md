@@ -32,6 +32,9 @@ sudo apt install -y \
   libxfixes3 \
   libgbm1 \
   libasound2t64
+```
+then
+``` bash
 
 curl -fsSL https://raw.githubusercontent.com/viv2005ek/StreamEngine-Electron-Csharp/master/install.sh | bash
 
